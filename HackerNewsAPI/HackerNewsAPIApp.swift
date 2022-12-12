@@ -9,9 +9,12 @@ import SwiftUI
 
 @main
 struct HackerNewsAPIApp: App {
+    
+    @UIApplicationDelegateAdaptor var delegate: AppDelegate
+    
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            StoryListView()
         }
     }
 }
