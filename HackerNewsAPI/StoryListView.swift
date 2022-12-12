@@ -15,7 +15,10 @@ struct StoryListView: View {
         
         NavigationView {
             List(viewModel.stories, id: \.id) { storyModel in
-                Text("\(storyModel.id)")
+                
+                NavigationLink(destination: StoryDetailView(storyID: storyModel.id)) {
+                    Text("\(storyModel.id)")
+                }
             }
             .navigationTitle("Hacker News")
             .navigationBarTitleDisplayMode(.large)

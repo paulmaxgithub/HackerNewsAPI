@@ -22,4 +22,17 @@ final class WebService {
             .decode(type: [Int].self, decoder: JSONDecoder())
             .eraseToAnyPublisher()
     }
+    
+    static func getStoryByID(storyID: Int) -> AnyPublisher<StoryByIDModel, Error> {
+        
+        let stringURL = "https://hacker-news.firebaseio.com/v0/item/\(storyID).json?print=pretty"
+        
+        guard let url = URL(string: stringURL) else { fatalError("Error, invalid URL")}
+        
+        return URLSession.shared.dataTaskPublisher(for: url)
+            .receive(on: RunLoop.main)
+            .map { $0.data }
+            .decode(type: StoryByIDModel.self, decoder: JSONDecoder())
+            .eraseToAnyPublisher()
+    }
 }
