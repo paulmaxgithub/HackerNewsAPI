@@ -10,7 +10,7 @@ import Combine
 
 final class WebService {
     
-    static func getAllTopStories() -> AnyPublisher<[Int], Error> {
+    static func getAllTopStories() -> AnyPublisher<[StoryByIDModel], Error> {
         
         let stringURL = "https://hacker-news.firebaseio.com/v0/topstories.json?print=pretty"
         
@@ -20,6 +20,12 @@ final class WebService {
             .receive(on: RunLoop.main)
             .map { $0.data }
             .decode(type: [Int].self, decoder: JSONDecoder())
+            .flatMap({ storyIDs in
+                return mergeStoriesToGetTitle(storyIDs)
+            })
+            .scan([], { stories, story -> [StoryByIDModel] in
+                return stories + [story]
+            })
             .eraseToAnyPublisher()
     }
     
@@ -34,5 +40,17 @@ final class WebService {
             .map { $0.data }
             .decode(type: StoryByIDModel.self, decoder: JSONDecoder())
             .eraseToAnyPublisher()
+    }
+    
+    private static func mergeStoriesToGetTitle(_ storyIds: [Int]) -> AnyPublisher<StoryByIDModel, Error> {
+        
+        let storyIDs = Array(storyIds.prefix(50))
+        let initialPublisher = getStoryByID(storyID: storyIDs[0])
+        let remainder = Array(storyIDs.dropFirst())
+        
+        return remainder.reduce(initialPublisher) { partialResult, id in
+            return partialResult.merge(with: getStoryByID(storyID: id))
+                .eraseToAnyPublisher()
+        }
     }
 }

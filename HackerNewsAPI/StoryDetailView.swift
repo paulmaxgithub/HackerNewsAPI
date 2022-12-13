@@ -11,14 +11,23 @@ struct StoryDetailView: View {
     
     @ObservedObject var viewModel: StoryDetailViewModel
     
+    private let storyID: Int
+    
     init(storyID: Int) {
-        viewModel = StoryDetailViewModel(storyID: storyID)
+        self.storyID = storyID
+        viewModel = StoryDetailViewModel()
     }
     
     var body: some View {
         
         VStack {
             Text(viewModel.title)
+                .padding(15)
+                .font(.largeTitle)
+            WebView(url: viewModel.url)
+        }
+        .onAppear {
+            viewModel.fetchStoryDetailsBy(storyID)
         }
     }
 }

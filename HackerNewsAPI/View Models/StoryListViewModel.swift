@@ -19,8 +19,8 @@ final class StoryListViewModel: ObservableObject {
     
     private func fetchTopStories() {
         cancellable = WebService.getAllTopStories()
-            .map { storyIDs in
-                storyIDs.compactMap { StoryModel.init(id:$0) }
+            .map { stories in
+                stories.compactMap { StoryModel.init(storyByIDModel: $0) }
             }
             .sink(receiveCompletion: { _ in }) { [unowned self] fetchedStories in
                 stories = fetchedStories

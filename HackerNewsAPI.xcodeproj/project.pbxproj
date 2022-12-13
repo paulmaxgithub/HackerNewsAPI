@@ -18,6 +18,8 @@
 		638AE2452947781800D4AE32 /* StoryByIDModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638AE2442947781800D4AE32 /* StoryByIDModel.swift */; };
 		638AE24729477E9D00D4AE32 /* StoryDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638AE24629477E9D00D4AE32 /* StoryDetailViewModel.swift */; };
 		638AE2492947837500D4AE32 /* StoryDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638AE2482947837500D4AE32 /* StoryDetailView.swift */; };
+		638AE24B2948B8B100D4AE32 /* WebView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638AE24A2948B8B000D4AE32 /* WebView.swift */; };
+		638AE24E2948CA9100D4AE32 /* WKWebView+Ext.swift in Sources */ = {isa = PBXBuildFile; fileRef = 638AE24D2948CA9100D4AE32 /* WKWebView+Ext.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -33,6 +35,8 @@
 		638AE2442947781800D4AE32 /* StoryByIDModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryByIDModel.swift; sourceTree = "<group>"; };
 		638AE24629477E9D00D4AE32 /* StoryDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryDetailViewModel.swift; sourceTree = "<group>"; };
 		638AE2482947837500D4AE32 /* StoryDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoryDetailView.swift; sourceTree = "<group>"; };
+		638AE24A2948B8B000D4AE32 /* WebView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WebView.swift; sourceTree = "<group>"; };
+		638AE24D2948CA9100D4AE32 /* WKWebView+Ext.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "WKWebView+Ext.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -67,6 +71,7 @@
 			children = (
 				638AE24229469F4B00D4AE32 /* AppDelegate.swift */,
 				638AE2282946903E00D4AE32 /* HackerNewsAPIApp.swift */,
+				638AE24C2948CA4B00D4AE32 /* Extensions */,
 				638AE22C2946904200D4AE32 /* Assets.xcassets */,
 				638AE236294691F900D4AE32 /* Services */,
 				638AE23D2946952500D4AE32 /* Models */,
@@ -107,6 +112,7 @@
 			children = (
 				638AE240294699AD00D4AE32 /* StoryListView.swift */,
 				638AE2482947837500D4AE32 /* StoryDetailView.swift */,
+				638AE24A2948B8B000D4AE32 /* WebView.swift */,
 			);
 			name = Views;
 			sourceTree = "<group>";
@@ -118,6 +124,14 @@
 				638AE2442947781800D4AE32 /* StoryByIDModel.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		638AE24C2948CA4B00D4AE32 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				638AE24D2948CA9100D4AE32 /* WKWebView+Ext.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -191,12 +205,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				638AE2492947837500D4AE32 /* StoryDetailView.swift in Sources */,
+				638AE24E2948CA9100D4AE32 /* WKWebView+Ext.swift in Sources */,
 				638AE2452947781800D4AE32 /* StoryByIDModel.swift in Sources */,
 				638AE24329469F4B00D4AE32 /* AppDelegate.swift in Sources */,
 				638AE23B2946944800D4AE32 /* StoryListViewModel.swift in Sources */,
 				638AE2382946922F00D4AE32 /* WebService.swift in Sources */,
 				638AE241294699AD00D4AE32 /* StoryListView.swift in Sources */,
 				638AE24729477E9D00D4AE32 /* StoryDetailViewModel.swift in Sources */,
+				638AE24B2948B8B100D4AE32 /* WebView.swift in Sources */,
 				638AE2292946903E00D4AE32 /* HackerNewsAPIApp.swift in Sources */,
 				638AE23F2946953E00D4AE32 /* StoryModel.swift in Sources */,
 			);
