@@ -1,6 +1,4 @@
 # HackerNewsAPI
-Build Reactive Functional Apps Using Swift / SwiftUI / Combine
-
 
 The Complete Guide to Combine Framework in iOS Using Swift
 
